@@ -3,20 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GenerateButtonComponent } from './generate-button/generate-button.component';
-import { ImageListComponent } from './image-list/image-list.component';
-import { ImageBoxComponent } from './image-box/image-box.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GenerateButtonComponent } from './components/generate-button/generate-button.component';
+import { ImageListComponent } from './components/image-list/image-list.component';
+import { ImageBoxComponent } from './components/image-box/image-box.component';
+import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GenerateButtonComponent,
     ImageListComponent,
-    ImageBoxComponent
+    ImageBoxComponent,
+    FavoriteButtonComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

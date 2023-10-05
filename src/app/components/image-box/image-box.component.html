@@ -1,0 +1,12 @@
+<div class="relative rounded-xl group overflow-hidden">
+  <img class=" w-64 h-auto object-cover group-hover:scale-105 transition-transform" [src]="image?.download_url"
+    [title]="image?.author" [alt]="image?.author" />
+  <div class="absolute  inset-0 hidden group-hover:block bg-black/40 group-hover:cursor-zoom-in w-full h-full">
+    <div class="w-full h-full p-2">
+      <div class="flex justify-between">
+        <div></div>
+        <FavoriteButton />
+      </div>
+    </div>
+  </div>
+</div>
