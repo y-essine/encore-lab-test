@@ -5,13 +5,13 @@ import { ImageService } from 'src/app/services/image-service.service';
 @Component({
   selector: 'ImageList',
   templateUrl: './image-list.component.html',
-  styleUrls: ['./image-list.component.less']
 })
 
 export class ImageListComponent {
   public isLoading = false;
   public isLoaded = false;
   images: Image[] = [];
+  public keyword: string = '';
 
   public onClick() {
     this.isLoading = true;
@@ -26,6 +26,19 @@ export class ImageListComponent {
       this.isLoading = false;
       this.isLoaded = true;
       console.log(this.images);
+    });
+  }
+
+  onSearch(keyword: string) {
+    this.keyword = keyword;
+  }
+
+  get filteredImages() {
+    if (!!!this.keyword)
+      return this.images;
+
+    return this.images.filter((image) => {
+      return image.author?.toLowerCase().includes(this.keyword.toLowerCase());
     });
   }
 }

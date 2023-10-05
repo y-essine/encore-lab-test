@@ -4,5 +4,21 @@
 
 :root {
   font-family: Inter, sans-serif;
-  @apply bg-zinc-900 text-white;
+  overflow-y: overlay;
+  overflow-x: hidden;
+
+  @apply bg-primary text-white;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  padding: 0.2rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 hover:bg-white/30 rounded-full pr-2;
 }

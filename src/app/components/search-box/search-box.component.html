@@ -1,0 +1,8 @@
+<div class="relative">
+  <input placeholder="Search here..." class="py-3 pl-10 pr-8 bg-secondary hover:bg-secondary-light focus:bg-secondary-light rounded-full w-56 md:w-96 text-white  outline-none placeholder-gray-400
+    transition-all" (focus)="onFocus()" (blur)="onBlur()" [(ngModel)]="keyword" #ctrl="ngModel" (keyup)="onInput()"
+    [ngClass]="{'cursor-not-allowed ': isDisabled}" [disabled]="isDisabled">
+
+  <i-feather name="search" class="absolute inset-0 m-4 text-gray-400 !w-4 !h-4 z-10 transition-colors"
+    [ngClass]="{'!text-white': isFocused}"></i-feather>
+</div>

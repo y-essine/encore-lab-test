@@ -4,10 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { IconsModule } from './icons-module.module';
+
 import { GenerateButtonComponent } from './components/generate-button/generate-button.component';
 import { ImageListComponent } from './components/image-list/image-list.component';
 import { ImageBoxComponent } from './components/image-box/image-box.component';
 import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,15 @@ import { FavoriteButtonComponent } from './components/favorite-button/favorite-b
     GenerateButtonComponent,
     ImageListComponent,
     ImageBoxComponent,
-    FavoriteButtonComponent
+    FavoriteButtonComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    IconsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

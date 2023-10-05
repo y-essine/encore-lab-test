@@ -3,7 +3,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'GenerateButton',
   templateUrl: './generate-button.component.html',
-  styleUrls: ['./generate-button.component.less']
 })
 
 export class GenerateButtonComponent {
