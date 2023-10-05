@@ -1,0 +1,5 @@
+<button class="flex items-center px-5 py-3 bg-emerald-600 hover:bg-emerald-700 w-fit rounded gap-3 transition-transform"
+    [ngClass]="{'!bg-emerald-800' : isLoading}" [disabled]="isLoading" (click)="onClick()">
+    <div *ngIf="isLoading" class="h-6 w-6 rounded-full border-2 border-r-white/80 border-black/10 animate-spin"></div>
+    <div class="text-xl font-bold ">{{isLoading ? "Loading" : "Generate images"}}</div>
+</button>
