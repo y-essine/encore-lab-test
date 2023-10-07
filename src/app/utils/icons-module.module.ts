@@ -14,6 +14,6 @@ const icons = {
   ],
   exports: [
     FeatherModule
-  ]
+  ],
 })
 export class IconsModule { }
