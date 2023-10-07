@@ -4,4 +4,6 @@ export class Image {
   download_url?: string;
   author?: string;
   text?: string;
+  width?: number;
+  height?: number;
 }

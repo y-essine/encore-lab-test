@@ -15,16 +15,7 @@ export class ImageBoxComponent {
   handleInViewport(isInViewport: boolean) {
     if (isInViewport && !this.isLoaded) {
       this.isLoaded = true;
-
       this.imageElement?.nativeElement.setAttribute('src', this.image?.download_url as string);
-
-      // how to check if the image is loaded?
-
-      // this?.imageElement?.nativeElement.addEventListener('load', () => {
-      //   this.isLoaded = true;
-      // remove this event listener
-      //   this?.imageElement?.nativeElement.removeEventListener('load', () => { });
-      // });
     }
   }
 
