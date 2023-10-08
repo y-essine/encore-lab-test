@@ -4,15 +4,13 @@
   <ImageBoxSkeleton [width]="image?.width" [height]="image?.height" />
 
   <img class="absolute inset-0 w-64 h-auto object-cover group-hover:scale-105 transition-transform"
-    [id]="'image-'+ image?.id"
-    [attr.data-src]="'https://imagecdn.app/v2/image/' + image?.download_url + '?width=256&format=webp&fit=cover'"
-    [title]="image?.author" [alt]="image?.author" name="LazyImage" #LazyImage />
+    [id]="'image-'+ image?.id" [title]="image?.author" [alt]="image?.author" name="LazyImage" #LazyImage />
 
   <div
     class="absolute inset-0 hidden group-hover:block bg-gradient-to-b from-black/60 to-transparent group-hover:cursor-zoom-in w-full h-full">
     <div class="w-full h-full">
       <div class="flex justify-between">
-        <div class="p-3 text-xs text-white/70 font-semibold">{{image?.author}}</div>
+        <div class="p-3 text-xs text-white/70 font-semibold">{{author || '...'}}</div>
         <FavoriteButton />
       </div>
     </div>

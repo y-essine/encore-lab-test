@@ -8,11 +8,17 @@
     <SearchBox *ngIf="isLoaded" (search)="onSearch($event)" [isDisabled]="!isLoaded || isLoading" />
   </div>
 
-  <div *ngIf="isLoaded" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+  <!-- <div *ngIf="isLoaded" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
     <div *ngFor="let row of filteredImages | transpose: 3">
       <div *ngFor="let image of row" class="pt-4">
         <ImageBox [image]="image" />
       </div>
+    </div>
+  </div> -->
+
+  <div *ngIf="isLoaded" class="flex justify-center flex-wrap gap-4 p-6">
+    <div *ngFor="let image of filteredImages">
+      <ImageBox [image]="image" />
     </div>
   </div>
 
