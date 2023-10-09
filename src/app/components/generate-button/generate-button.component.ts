@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class GenerateButtonComponent {
 
   @Input({ required: true }) public isLoading = false;
+  @Input({ required: true }) public isLoaded = false;
   @Output() public buttonClick: EventEmitter<any> = new EventEmitter();
 
   onButtonClick() {

@@ -9,43 +9,20 @@ import { Observable } from 'rxjs';
 
 export class ImageService {
 
-  URI: string = 'https://picsum.photos';
+  constructor(private http: HttpClient) { }
 
-  generatedImages: Image[] = [];
-
-  constructor(private http: HttpClient) {
-    // generate 1000 images
-    for (let i = 0; i < 1000; i++) {
-      this.generatedImages.push({
-        id: i,
-        photo: `${this.URI}/id/${i}/300/200.webp`,
-        author: '...',
-        width: 300,
-        height: 200,
-      });
-    }
-    // double the images
-    // this.generatedImages = [...this.generatedImages, ...this.generatedImages];
-    // reach 4K images
-    // this.generatedImages = [...this.generatedImages, ...this.generatedImages];
-  }
-
+  // get images from assets/image_data.json
   public getImages(): Observable<Image[]> {
-    return this.http.get<Image[]>(`${this.URI}/v2/list`);
-  }
-
-  public getGeneratedImages(): Observable<Image[]> {
-    // simulate a get request with a delay of 1 second
-    return new Observable<Image[]>((subscriber) => {
+    // simulate network latency
+    return new Observable<Image[]>((observer) => {
       setTimeout(() => {
-        subscriber.next(this.generatedImages);
-        subscriber.complete();
+        this.http.get<Image[]>('assets/image_data.json').subscribe((images: Image[]) => {
+          observer.next(images);
+          observer.complete();
+        });
       }, 1000);
-    });
-  }
 
-  public getImageInfo(id: number): Observable<any> {
-    return this.http.get<any>(`${this.URI}/id/${id}/info`);
+    });
   }
 
 }

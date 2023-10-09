@@ -21,7 +21,7 @@ export class ImageListComponent {
   constructor(private imageService: ImageService) { }
 
   getImageList() {
-    this.imageService.getGeneratedImages().subscribe((data: Image[]) => {
+    this.imageService.getImages().subscribe((data: Image[]) => {
       this.images = data;
       this.isLoading = false;
       this.isLoaded = true;
@@ -38,9 +38,12 @@ export class ImageListComponent {
     if (!!!this.keyword)
       return this.images;
 
+    let kw = this.keyword.toLowerCase();
     // else filter images by keyword
     return this.images.filter((image) => {
-      return image.author?.toLowerCase().includes(this.keyword.toLowerCase());
+      return image.author?.toLowerCase().includes(kw) ||
+        image.text?.toLowerCase().includes(kw) ||
+        image.id == parseInt(kw);
     });
   }
 }

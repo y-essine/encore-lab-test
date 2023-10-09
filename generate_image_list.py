@@ -31,6 +31,14 @@ for i in range(1000):
     image_info = get_image_info(image_id)
     if image_info:
         json_data.append(image_info)
+    if i % 100 == 0:
+        print(f"Processed {i} images")
+        with open("image_data.json", "w") as json_file:
+          json.dump(json_data, json_file, indent=2)
+
+# Duplicate the array twice to reach 4000 elements
+json_data = json_data + json_data
+json_data = json_data + json_data
 
 # Save the JSON data to a file
 with open("image_data.json", "w") as json_file:

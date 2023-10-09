@@ -1,7 +1,13 @@
 <button
   class="relative flex items-center justify-center px-5 py-3 bg-emerald-600 hover:bg-emerald-700 rounded gap-3 transition-all w-64"
-  [ngClass]="{'!bg-emerald-800' : isLoading}" [disabled]="isLoading" (click)="onButtonClick()">
+  [ngClass]="{'!bg-emerald-800' : isLoading, '!bg-transparent  border border-gray-400': isLoaded}"
+  [disabled]="isLoading || isLoaded" (click)="onButtonClick()">
+
   <div *ngIf="isLoading"
     class="absolute left-8 h-6 w-6 rounded-full border-2 border-r-white/80 border-black/10 animate-spin"></div>
-  <div class="text-xl font-bold ">{{isLoading ? "Loading" : "Generate images"}}</div>
+
+  <i-feather *ngIf="isLoaded" name="check" class="h-6 w-6 text-gray-400"></i-feather>
+
+  <div class="text-xl font-bold " [ngClass]="{'text-gray-300': isLoaded}">{{isLoading ? "Loading" : isLoaded ? "Images
+    generated" : "Generate images"}}</div>
 </button>
