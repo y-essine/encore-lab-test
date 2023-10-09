@@ -9,6 +9,8 @@ import { IconsModule } from './utils/icons-module.module';
 import { IntersectionObserverDirective } from './utils/intersection-observer.directive';
 import { TransposePipe } from './utils/transpose.pipe';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 import { AppComponent } from './app.component';
 
 import { GenerateButtonComponent } from './components/generate-button/generate-button.component';
@@ -35,7 +37,8 @@ import { ImageBoxSkeletonComponent } from './components/image-box-skeleton/image
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    IconsModule
+    IconsModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

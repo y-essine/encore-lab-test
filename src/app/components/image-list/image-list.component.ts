@@ -1,24 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnDestroy } from '@angular/core';
 import { Image } from 'src/app/models/Image';
 import { ImageService } from 'src/app/services/image-service.service';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'ImageList',
   templateUrl: './image-list.component.html',
+  styleUrls: ['./image-list.component.less']
 })
 
-export class ImageListComponent {
+export class ImageListComponent implements OnDestroy {
+  @ViewChild('VirtualScroller') virtualScroller?: CdkVirtualScrollViewport;
+
   public isLoading = false;
   public isLoaded = false;
   images: Image[] = [];
   public keyword: string = '';
+
+  public calculatedItemSize = 170;
+
+  constructor(private imageService: ImageService) { }
+
+  ngAfterViewInit() {
+    // add window event listener on resize to update virtual scroller viewport size
+    window.addEventListener('resize', () => {
+      this.virtualScroller?.checkViewportSize();
+      console.log(this.virtualScroller?.getViewportSize());
+
+      console.log('resize');
+
+    });
+  }
+
+  ngOnDestroy() {
+    // remove window event listener on destroy
+    window.removeEventListener('resize', () => {
+      this.virtualScroller?.checkViewportSize();
+    });
+  }
 
   public onClick() {
     this.isLoading = true;
     this.getImageList();
   }
 
-  constructor(private imageService: ImageService) { }
 
   getImageList() {
     this.imageService.getImages().subscribe((data: Image[]) => {

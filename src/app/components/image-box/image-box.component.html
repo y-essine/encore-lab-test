@@ -1,11 +1,11 @@
-<div class="relative rounded-xl group overflow-hidden hide-content" IntersectionObserver
-  (inViewport)="handleInViewport($event)">
+<div class="relative rounded-xl group overflow-hidden" IntersectionObserver (inViewport)="handleInViewport($event)">
   <div class="hide-this">
 
     <ImageBoxSkeleton [width]="300" [height]="200" />
 
     <img class="absolute inset-0 w-64 h-auto object-cover group-hover:scale-105 transition-transform"
-      [id]="'image-'+ image?.id" [title]="image?.author" [alt]="image?.author" name="LazyImage" #LazyImage />
+      [src]="image?.photo" [id]="'image-'+ image?.id" [title]="image?.author" [alt]="image?.author" name="LazyImage"
+      #LazyImage />
 
     <div class="absolute inset-0 hidden group-hover:block bg-black/60 w-full h-full">
       <div class="w-full h-full p-3 flex flex-col justify-between">

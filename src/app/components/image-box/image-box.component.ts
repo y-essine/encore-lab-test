@@ -21,10 +21,10 @@ export class ImageBoxComponent {
 
   handleInViewport(isInViewport: boolean) {
     // if image is in viewport and not loaded, load it and fetch image info
-    if (isInViewport && !this.isLoaded && this.isSeen) {
-      this.imageElement?.nativeElement.setAttribute('src', this.image?.photo as string);
-      this.isLoaded = true;
-    }
+    // if (isInViewport && !this.isLoaded && this.isSeen) {
+    //   this.imageElement?.nativeElement.setAttribute('src', this.image?.photo as string);
+    //   this.isLoaded = true;
+    // }
   }
 
 
