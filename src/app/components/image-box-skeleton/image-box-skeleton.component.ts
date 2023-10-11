@@ -12,7 +12,7 @@ export class ImageBoxSkeletonComponent implements OnInit {
   public calculatedHeight: number = 0;
 
   ngOnInit() {
-    this.calculatedHeight = Math.round((this.height as number) * (256 / (this.width as number)));
+    this.calculatedHeight = Math.round((this.height as number) * (500 / (this.width as number)));
   }
 
 }

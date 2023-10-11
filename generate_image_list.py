@@ -14,7 +14,7 @@ def get_image_info(image_id):
         data = response.json()
         return {
             "id": image_id,
-            "photo": f"https://picsum.photos/id/{image_id}/300/200.webp",
+            "photo": f"https://picsum.photos/id/{image_id}/750/750.webp",
             "author": data.get("author"),
             "text": faker.paragraph()
         }

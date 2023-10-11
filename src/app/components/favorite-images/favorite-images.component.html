@@ -1,0 +1,31 @@
+<div class="fixed top-6 z-20 right-6 p-3 ">
+  <div class="relative">
+
+    <button class="transition-colors group/favs relative" (click)="onClick()">
+      <i-feather name="heart"
+        class="text-zinc-600 !fill-zinc-600 !w-6 !h-6 group-hover/favs:!fill-red-400 group-hover/favs:!text-red-400 transition-colors"></i-feather>
+      <div class="absolute top-0 right-0 -mt-1 w-3 h-3">
+        <span class="absolute inline-flex animate-ping h-3 w-3 rounded-full bg-red-400 opacity-75"></span>
+        <span class="absolute inline-flex rounded-full h-3 w-3 bg-[#a63a3d] group-hover:bg-red-500"></span>
+      </div>
+    </button>
+
+    <div *ngIf="showList" class="z-30">
+      <div class="fixed inset-0 overflow-y-auto bg-black/30" (click)="onClick()">
+      </div>
+
+      <div
+        class="fixed top-[80px] right-6 p-3 bg-secondary-light rounded-md shadow-xl h-[calc(100vh-96px)] overflow-auto">
+        <div>
+          <div class="p-6 font-semibold">Liked <span class="text-red-400">{{favorites.length}}</span> photos.</div>
+        </div>
+        <div class="pt-3 flex flex-col gap-4">
+          <div *ngFor="let id of favorites" class="w-full">
+            <img [src]="'https://picsum.photos/id/'+id+'/750/750.webp'" class="h-64 w-64 rounded-md">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

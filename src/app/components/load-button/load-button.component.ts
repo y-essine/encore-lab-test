@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'GenerateButton',
-  templateUrl: './generate-button.component.html',
+  selector: 'LoadButton',
+  templateUrl: './load-button.component.html',
 })
 
-export class GenerateButtonComponent {
+export class LoadButtonComponent {
 
   @Input({ required: true }) public isLoading = false;
   @Input({ required: false }) public isLoaded = false;

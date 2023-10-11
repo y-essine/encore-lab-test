@@ -9,7 +9,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
   styleUrls: ['./image-list.component.less']
 })
 
-export class ImageListComponent implements OnDestroy {
+export class ImageListComponent {
   @ViewChild('VirtualScroller') virtualScroller?: CdkVirtualScrollViewport;
 
   public isLoading = false;
@@ -17,33 +17,14 @@ export class ImageListComponent implements OnDestroy {
   images: Image[] = [];
   public keyword: string = '';
 
-  public calculatedItemSize = 170;
+  public calculatedItemSize = 500;
 
   constructor(private imageService: ImageService) { }
-
-  ngAfterViewInit() {
-    // add window event listener on resize to update virtual scroller viewport size
-    window.addEventListener('resize', () => {
-      this.virtualScroller?.checkViewportSize();
-      console.log(this.virtualScroller?.getViewportSize());
-
-      console.log('resize');
-
-    });
-  }
-
-  ngOnDestroy() {
-    // remove window event listener on destroy
-    window.removeEventListener('resize', () => {
-      this.virtualScroller?.checkViewportSize();
-    });
-  }
 
   public onClick() {
     this.isLoading = true;
     this.getImageList();
   }
-
 
   getImageList() {
     this.imageService.getImages().subscribe((data: Image[]) => {
@@ -69,6 +50,6 @@ export class ImageListComponent implements OnDestroy {
       return image.author?.toLowerCase().includes(kw) ||
         image.text?.toLowerCase().includes(kw) ||
         image.id == parseInt(kw);
-    });
+    }) || [];
   }
 }

@@ -1,21 +1,19 @@
 <div class="relative rounded-xl group overflow-hidden" IntersectionObserver (inViewport)="handleInViewport($event)">
-  <div class="hide-this">
 
-    <ImageBoxSkeleton [width]="300" [height]="200" />
+  <ImageBoxSkeleton [width]="500" [height]="500" />
 
-    <img class="absolute inset-0 w-64 h-auto object-cover group-hover:scale-105 transition-transform"
-      [src]="image?.photo" [id]="'image-'+ image?.id" [title]="image?.author" [alt]="image?.author" name="LazyImage"
-      #LazyImage />
+  <img class="absolute inset-0 w-[500px] h-[500px] object-cover group-hover:scale-105 transition-transform"
+    [src]="image?.photo" [id]="'image-'+ image?.id" [title]="image?.author" [alt]="image?.author" name="LazyImage"
+    #LazyImage />
 
-    <div class="absolute inset-0 hidden group-hover:block bg-black/60 w-full h-full">
-      <div class="w-full h-full p-3 flex flex-col justify-between">
-        <div class="flex justify-between">
-          <div class="text-xs text-white/70 font-semibold">{{image?.author || '...'}}</div>
-          <FavoriteButton />
-        </div>
-        <div>
-          <div class="text-xs text-white/80">{{image?.text || '...'}}</div>
-        </div>
+  <div class="absolute inset-0 hidden group-hover:block bg-black/60 w-full h-full">
+    <div class="w-full h-full p-3 flex flex-col justify-between">
+      <div class="flex justify-between">
+        <div class="text-xs text-white/70 font-semibold">{{image?.author || '...'}}</div>
+        <FavoriteButton [imageId]="image?.id" [isFavorite]="isFavorite" />
+      </div>
+      <div>
+        <div class="text-xs text-white/80">{{image?.text || '...'}}</div>
       </div>
     </div>
   </div>
